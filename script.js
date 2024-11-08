@@ -13,10 +13,22 @@ function addTask() {
     }
 }
 
+
 //function to delete a task
 function deleteTask(index) {
-    
+    tasks.splice(index, 1);
     renderTasks();
+}
+
+function deleteTask(index) {
+    const confirmDelete = confirm("Are you sure you want to delete this task?");
+    if (confirmDelete) {
+        // Remove 1 task at the given index
+        tasks.splice(index, 1);
+        renderTasks(); // Re-render tasks after deletion
+    } else {
+        alert("Task deletion canceled.");
+    }
 }
 
 //function to update
